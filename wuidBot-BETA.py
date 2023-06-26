@@ -25,8 +25,6 @@ async def welcome_embed(ctx):
         color=discord.Colour.blurple(), # Pycord provides a class with default colors you can choose from
     )
     embed.add_field(name="Gen Chat!", value="**<#1120578724677570673>**")
-
-    embed.add_field(name="Rules!", value="#Rules", inline=True)
     embed.add_field(name="Infomation!", value="<#1120578791371194449>", inline=True)
     embed.add_field(name="Announced Something?", value="<#1120831816094470204>", inline=True)
  
