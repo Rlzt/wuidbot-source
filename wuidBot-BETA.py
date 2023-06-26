@@ -14,7 +14,7 @@ async def hi(ctx):
 
 @bot.slash_command(name = "version", description = "Check Bot Version")
 async def ver(ctx):
-    await ctx.send("Version 1.0.23 - Beta Branch - By .wuid")
+    await ctx.send("Version 1.0.23 - Beta Branch - By <@895788406347558922>")
 
 
 @bot.command()
@@ -73,7 +73,7 @@ async def info(ctx):
         description="Info About wuidBot",
         color=discord.Colour.red(), # Pycord provides a class with default colors you can choose from
     )
-    embed.add_field(name="Fully Coded And Made By", value="**.wuid**")
+    embed.add_field(name="Fully Coded And Made By", value="**<@895788406347558922>**")
 
     embed.add_field(name="Using ", value="Py-cord", inline=True)
     embed.add_field(name="and ", value="Wavelink", inline=True)
