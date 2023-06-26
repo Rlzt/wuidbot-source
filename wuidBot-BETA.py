@@ -24,11 +24,11 @@ async def welcome_embed(ctx):
         description="Welcome to The Server! Here is a List of channels you should read up on!",
         color=discord.Colour.blurple(), # Pycord provides a class with default colors you can choose from
     )
-    embed.add_field(name="Gen Chat!", value="**#General**")
+    embed.add_field(name="Gen Chat!", value="**<#1120578724677570673>**")
 
     embed.add_field(name="Rules!", value="#Rules", inline=True)
-    embed.add_field(name="Infomation!", value="#Info", inline=True)
-    embed.add_field(name="Announced Something?", value="#Announcements", inline=True)
+    embed.add_field(name="Infomation!", value="<#1120578791371194449>", inline=True)
+    embed.add_field(name="Announced Something?", value="<#1120831816094470204>", inline=True)
  
     embed.set_footer(text="by wuid") # footers can have icons too
     embed.set_author(name="by @.wuid", icon_url="https://pfps.gg/assets/pfps/1268-girl-pfp-1.png")
