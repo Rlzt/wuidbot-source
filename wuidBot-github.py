@@ -15,7 +15,7 @@ async def hi(ctx):
 
 @bot.slash_command(name = "version", description = "Check Bot Version")
 async def ver(ctx):
-    await ctx.send("Version 1.0.23 - Beta Branch - By .wuid")
+    await ctx.send("Version 1.0.23 - Beta Branch - By <@895788406347558922>")
 
 
 
@@ -32,7 +32,7 @@ async def welcome_embed(ctx):
     embed.add_field(name="Announced Something?", value="<#1120831816094470204>", inline=True)
  
     embed.set_footer(text="by wuid") # footers can have icons too
-    embed.set_author(name="by @.wuid", icon_url="https://pfps.gg/assets/pfps/1268-girl-pfp-1.png")
+    embed.set_author(name="by <@895788406347558922>", icon_url="https://pfps.gg/assets/pfps/1268-girl-pfp-1.png")
     embed.set_thumbnail(url="https://pfps.gg/assets/pfps/1268-girl-pfp-1.png")
     embed.set_image(url="https://pfps.gg/assets/banners/3332-90s-clouds.png")
  
@@ -101,7 +101,7 @@ async def serverinfo(ctx):
     embed.add_field(name="Member Count", value=f'{ctx.guild.member_count}', inline = True)
  
     embed.set_footer(text="ServerInfo") # footers can have icons too
-    embed.set_author(name="By .wuid", icon_url="https://pfps.gg/assets/pfps/1268-girl-pfp-1.png")
+    embed.set_author(name="By <@895788406347558922>", icon_url="https://pfps.gg/assets/pfps/1268-girl-pfp-1.png")
     embed.set_thumbnail(url=icon_url)
  
     await ctx.respond("Info!", embed=embed)
