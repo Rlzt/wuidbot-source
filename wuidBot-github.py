@@ -151,4 +151,4 @@ async def doge(ctx):
     embed.set_thumbnail(url=senddoggos)
     await ctx.send(embed=embed)
     
-bot.run("MTEyMjI1OTcyMDM5NzM5NDAxMQ.GP3nsv.AwaU0xxdidyvI84XIAxrvVecEoe4QbhD4t1zCs")
+bot.run("token")
