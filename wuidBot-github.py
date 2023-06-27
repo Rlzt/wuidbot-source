@@ -10,7 +10,7 @@ async def hi(ctx):
 
 @bot.slash_command(name = "version", description = "Check Bot Version")
 async def ver(ctx):
-    await ctx.send("Version 1.0.23 - Beta Branch - By <@895788406347558922>")
+    await ctx.send("Version 1.0.5 - Beta Branch - By <@895788406347558922>")
 
 
 
