@@ -122,22 +122,6 @@ class MyView(discord.ui.View): # Create a class called MyView that subclasses di
 async def github(ctx):
     await ctx.respond("Bot Source Code", view=MyView())
 
-@bot.slash_command(name = "icon", description = "Gets Guild Icon for vbucks")
-async def fuxkmedaddxy(ctx):
-    guild = ctx.guild
-    if guild.icon is not None:
-        icon_url = guild.icon.url
-    else:
-        icon_url = None
-        
-    await ctx.send(f"Server Icon URL: {icon_url}")
-
-
-
-
-
-
-
 @bot.command()
 async def doge(ctx):
     goodjobwuid = ["https://www.allthingsdogs.com/wp-content/uploads/2019/06/Fun-Dog-Meme.jpg", "https://www.allthingsdogs.com/wp-content/uploads/2019/06/Border-Collie-Joke.jpg", "https://www.allthingsdogs.com/wp-content/uploads/2019/06/Dog-Eating-Food-Pun.jpg",  "https://www.allthingsdogs.com/wp-content/uploads/2019/06/Dog-Paw-Meme.jpg", "https://www.allthingsdogs.com/wp-content/uploads/2019/06/Joke-About-Puggles.jpg", "https://media3.giphy.com/media/3otPovknltwgrSHJDO/200w.webp?cid=ecf05e47onblm1gfyn2yi0sind4e8m1dxxhd719hwww9dqkq&ep=v1_gifs_search&rid=200w.webp&ct=g", "https://media.giphy.com/media/eG4Y2ROCoYIEIKbbJV/giphy.gif", "https://media.giphy.com/media/SgA1dDaADW1Uuo5MZG/giphy.gif", "https://media.giphy.com/media/gIupdT6dMUHSOrYieB/giphy.gif", "https://media.giphy.com/media/26uTru9zaMy7SFuQU/giphy.gif", "https://media.giphy.com/media/3otPorBqSZrB0sVPHi/giphy.gif", "https://media.giphy.com/media/bCm4v4wy0LSfdz72Mr/giphy.gif", "https://media.giphy.com/media/3otPou7Ug1KjTOYeje/giphy.gif", "https://media.giphy.com/media/UWtZTgC9zhlTqxEelf/giphy.gif", "https://media.giphy.com/media/pn1e1I4nAVtSMo1h7y/giphy.gif", "https://media.giphy.com/media/P1fiDLzvru9FetvtKC/giphy.gif", "https://media.giphy.com/media/IF0a7qASuTexF2kRc9/giphy.gif", "https://media.giphy.com/media/lzP4HBHI9P8gHV8lHq/giphy.gif", "https://media.giphy.com/media/lCY522fPY3faVDvj2R/giphy.gif", "https://media0.giphy.com/media/fvM5D7vFoACAM/200.webp?cid=ecf05e47869lndklovq7bpj1xfsy6vlrl7iudwjvzpezebb5&ep=v1_gifs_search&rid=200.webp&ct=g", "https://media.giphy.com/media/oBQZIgNobc7ewVWvCd/giphy.gif", "https://media.giphy.com/media/8FUmlOoL72HB3rR7wm/giphy.gif", "https://media.giphy.com/media/xT9DPEPymVhAwi0mJy/giphy.gif", "https://media.giphy.com/media/dKKu8jJaontS3Yyka8/giphy.gif", "https://media.giphy.com/media/CqogJHPYMv6oiBO31a/giphy.gif", "https://media.giphy.com/media/21sybnVhC2Xpm/giphy.gif", "https://media.giphy.com/media/D6InoH7TLxMsM/giphy.gif", "https://media.giphy.com/media/ATjmo8oCmY2btUckpV/giphy.gif", "https://media.giphy.com/media/k2hh0zJzIBvY4/giphy.gif", "https://media1.giphy.com/media/Eh9JKXQg1EpUqP8l5Y/giphy.webp?cid=ecf05e476m6kd8f722o2tkfa8g6m37hfxkgbldmgm3dz2kiv&ep=v1_gifs_search&rid=giphy.webp&ct=g", "https://media0.giphy.com/media/9cWrk07kjAJdC6jHta/200w.webp?cid=ecf05e476m6kd8f722o2tkfa8g6m37hfxkgbldmgm3dz2kiv&ep=v1_gifs_search&rid=200w.webp&ct=g", "https://media4.giphy.com/media/SS4qzUNG3SlQHqQX2u/giphy.webp?cid=ecf05e47n3d8weq9epd9qls9ayuiv76rwmdr4hbuby3e5fpy&ep=v1_gifs_search&rid=giphy.webp&ct=g", "https://media0.giphy.com/media/OQBoOB4CQvSSpVYSCA/200.webp?cid=ecf05e47n3d8weq9epd9qls9ayuiv76rwmdr4hbuby3e5fpy&ep=v1_gifs_search&rid=200.webp&ct=g", "https://media0.giphy.com/media/cEYFeDHvTlS4zmRmPU4/200w.webp?cid=ecf05e47n3d8weq9epd9qls9ayuiv76rwmdr4hbuby3e5fpy&ep=v1_gifs_search&rid=200w.webp&ct=g", "https://media2.giphy.com/media/4QFd9B1jMRZDVbMYAg/200.webp?cid=ecf05e47n3d8weq9epd9qls9ayuiv76rwmdr4hbuby3e5fpy&ep=v1_gifs_search&rid=200.webp&ct=g"]
@@ -166,6 +150,43 @@ async def flipcoin(ctx):
     coin = random.choice(['Heads', 'Tails'])
     response_message = f"{ctx.author.mention} Flipped a Coin : It Landed on ***{coin}***!"
     await ctx.respond(response_message)
+
+
+
+# restrict bot to one guild.
+def only_this_guild(guild_id: int):
+    async def predicate(ctx):
+        if ctx.guild is None:
+            raise commands.NoPrivateMessage() 
+        return ctx.guild.id == guild_id           
+
+    return commands.check(predicate)
+
+@bot.slash_command(
+    name="infomc",
+    description="info about a second discord server"
+)
+@only_this_guild(1122020440202817587)
+async def xDGamerMCYTtesting3957406(ctx):
+
+    response_message = f"{ctx.author.mention} hello!"
+    
+    await ctx.respond(response_message)
+
+
+
+
+@bot.slash_command(name = "icon", description = "Gets Guild Icon for vbucks")
+async def fuxkmedaddxy(ctx):
+    guild = ctx.guild
+    if guild.icon is not None:
+        icon_url = guild.icon.url
+    else:
+        icon_url = "https://media.tenor.com/Lby-i8SJI2QAAAAM/placeholder-bluelearn.gif"
+
+    rm = f"{ctx.author.mention} Guild Icon Found {icon_url}!"
+    
+    await ctx.respond(rm)
 
 
 
