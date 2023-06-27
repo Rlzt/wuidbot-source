@@ -3,11 +3,6 @@ from datetime import datetime
 import random
 
 
-bot = discord.Bot()
-@bot.event
-async def on_ready():
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="the best song ever"))
-    print(f"{bot.user} is ready and online!")
 
 @bot.slash_command(name = "hello", description = "Say hello to the bot")
 async def hi(ctx):
@@ -150,5 +145,34 @@ async def doge(ctx):
     embed = discord.Embed()
     embed.set_thumbnail(url=senddoggos)
     await ctx.send(embed=embed)
+
+
+
+import discord
+from discord.ext import commands
+
+@bot.command()
+@commands.has_permissions(administrator=True)
+async def slowmode(ctx, channel: discord.TextChannel, time: int):
+    response_message = f"{ctx.author.mention} Set Slowmode To {time} in {channel.mention}"
+    await channel.edit(slowmode_delay=time)
+    await ctx.respond(response_message)
+
+
+
+
+@bot.command()
+async def flipcoin(ctx):
+    coin = random.choice(['Heads', 'Tails'])
+    response_message = f"{ctx.author.mention} Flipped a Coin : It Landed on ***{coin}***!"
+    await ctx.respond(response_message)
+
+
+
+@bot.event
+async def on_ready():
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="the best song ever"))
+    print(f"{bot.user} is ready and online!!!")
+
     
 bot.run("token")
